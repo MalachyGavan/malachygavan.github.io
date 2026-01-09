@@ -1,77 +1,83 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>CV</title>
+  <title>Curriculum Vitae</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #ffffff;
-  }
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #ffffff;
+    }
 
-  /* Outer framed container */
-  #frame {
-    max-width: 900px;
-    margin: 24px auto;
-    padding: 16px;
-    border: 1px solid #d6d6d6;
-    box-sizing: border-box;
-    background: #ffffff;
-  }
-
-  /* Canvas wrapper */
-  #pdf {
-    width: 100%;
-  }
-
-  /* Individual PDF pages */
-  canvas {
-    display: block;
-    margin: 0 auto 20px auto;
-    background: #ffffff;
-  }
-
-  /* Slightly reduce margins on small screens */
-  @media (max-width: 600px) {
+    /* Outer framed container */
     #frame {
-      margin: 12px;
-      padding: 8px;
-      border-width: 1px;
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 16px;
+      border: 1px solid #d6d6d6;
+      box-sizing: border-box;
+      background: #ffffff;
     }
 
+    /* Canvas wrapper */
+    #pdf {
+      width: 100%;
+    }
+
+    /* Individual PDF pages */
     canvas {
-      margin-bottom: 16px;
+      display: block;
+      margin: 0 auto 20px auto;
+      background: #ffffff;
     }
-  }
-</style>
 
+    /* Tighter spacing on small screens */
+    @media (max-width: 600px) {
+      #frame {
+        margin: 12px;
+        padding: 8px;
+      }
+
+      canvas {
+        margin-bottom: 16px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <div id="pdf"></div>
+  <div id="frame">
+    <div id="pdf"></div>
+  </div>
 
   <script type="module">
     import * as pdfjsLib from './pdf.mjs';
 
     pdfjsLib.GlobalWorkerOptions.workerSrc = './pdf.worker.mjs';
 
-    const url = 'CV_MJGavan.pdf';
+    const url = './CV_MJGavan.pdf';
     const container = document.getElementById('pdf');
+    const frame = document.getElementById('frame');
 
     const pdf = await pdfjsLib.getDocument(url).promise;
 
     for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
       const page = await pdf.getPage(pageNum);
-      const viewport = page.getViewport({ scale: 1.5 });
+
+      const containerWidth = frame.clientWidth;
+      const unscaledViewport = page.getViewport({ scale: 1 });
+      const scale = containerWidth / unscaledViewport.width;
+      const viewport = page.getViewport({ scale });
 
       const canvas = document.createElement('canvas');
       const context = canvas.getContext('2d');
 
-      canvas.height = viewport.height;
       canvas.width = viewport.width;
+      canvas.height = viewport.height;
       container.appendChild(canvas);
 
       await page.render({
@@ -79,6 +85,9 @@
         viewport: viewport
       }).promise;
     }
+
+    /* Re-render on resize (e.g. mobile rotation) */
+    window.addEventListener('resize', () => location.reload());
   </script>
 </body>
 </html>
