@@ -4,21 +4,50 @@
   <meta charset="utf-8">
   <title>CV</title>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: #fff;
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #ffffff;
+  }
+
+  /* Outer framed container */
+  #frame {
+    max-width: 900px;
+    margin: 24px auto;
+    padding: 16px;
+    border: 1px solid #d6d6d6;
+    box-sizing: border-box;
+    background: #ffffff;
+  }
+
+  /* Canvas wrapper */
+  #pdf {
+    width: 100%;
+  }
+
+  /* Individual PDF pages */
+  canvas {
+    display: block;
+    margin: 0 auto 20px auto;
+    background: #ffffff;
+  }
+
+  /* Slightly reduce margins on small screens */
+  @media (max-width: 600px) {
+    #frame {
+      margin: 12px;
+      padding: 8px;
+      border-width: 1px;
     }
-    #pdf {
-      width: 100%;
-    }
+
     canvas {
-      display: block;
-      margin: 0 auto;
+      margin-bottom: 16px;
     }
-  </style>
+  }
+</style>
+
 </head>
 
 <body>
