@@ -5,48 +5,52 @@
   <title>Curriculum Vitae</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #f2f2f2; /* light grey page background */
-  }
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #f2f2f2; /* light grey page background */
+      overflow-x: hidden;
+    }
 
-  /* Outer framed container (the CV area) */
-  #frame {
-    max-width: 900px;
-    margin: 36px auto;
-    padding: 0px;
-    border: 1px solid #d6d6d6;
-    background: #ffffff; /* white paper */
-    box-sizing: border-box;
-  }
-
-  /* Canvas wrapper */
-  #pdf {
-    width: 100%;
-  }
-
-  /* Individual PDF pages */
- canvas {
-  display: block;
-  margin: 0 auto 20px auto;
-  background: #ffffff;
-}
-
-  /* Tighter spacing on small screens */
-  @media (max-width: 600px) {
+    /* Outer framed container (the CV area) */
     #frame {
-      margin: 16px;
-      padding: 8px;
+      max-width: 900px;
+      margin: 36px auto;
+      padding: 0;
+      border: 1px solid #d6d6d6;
+      background: #ffffff; /* white paper */
+      box-sizing: border-box;
+      overflow-x: hidden; /* IMPORTANT: prevents mobile bleed */
     }
 
-    canvas {
-      margin-bottom: 16px;
+    /* Canvas wrapper */
+    #pdf {
+      width: 100%;
     }
-  }
-</style>
+
+    /* Individual PDF pages */
+    canvas {
+      display: block;
+      margin: 0 auto 20px auto;
+      background: #ffffff;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Tighter spacing on small screens */
+    @media (max-width: 600px) {
+      #frame {
+        margin: 16px;
+        padding: 8px;
+      }
+
+      canvas {
+        margin-bottom: 16px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -65,45 +69,56 @@
 
     const pdf = await pdfjsLib.getDocument(url).promise;
 
-for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-  const page = await pdf.getPage(pageNum);
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+      const page = await pdf.getPage(pageNum);
 
-  // Use the actual viewport width as the hard constraint (prevents odd mobile/layout cases)
-  const availableWidth = Math.min(
-    frame.clientWidth,
-    document.documentElement.clientWidth - 32 // small safety margin
-  );
+      /* --- FIXED WIDTH CALCULATION --- */
+      const frameStyles = getComputedStyle(frame);
+      const horizontalPadding =
+        parseFloat(frameStyles.paddingLeft) +
+        parseFloat(frameStyles.paddingRight);
+      const horizontalBorder =
+        parseFloat(frameStyles.borderLeftWidth) +
+        parseFloat(frameStyles.borderRightWidth);
 
-  // Fit the PDF page to that width (in CSS pixels)
-  const baseViewport = page.getViewport({ scale: 1 });
-  const scaleToFit = availableWidth / baseViewport.width;
-  const viewport = page.getViewport({ scale: scaleToFit });
+      const visualFrameWidth =
+        frame.clientWidth - horizontalPadding - horizontalBorder;
 
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d', { alpha: false });
-  container.appendChild(canvas);
+      const availableWidth = Math.min(
+        visualFrameWidth,
+        document.documentElement.clientWidth
+      );
+      /* -------------------------------- */
 
-  // High-DPI backing store for crisp text
-const dpr = Math.min(window.devicePixelRatio || 1, 3);
+      const baseViewport = page.getViewport({ scale: 1 });
+      const scaleToFit = availableWidth / baseViewport.width;
+      const viewport = page.getViewport({ scale: scaleToFit });
 
-const cssWidth = Math.floor(viewport.width);
-const cssHeight = Math.floor(viewport.height);
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d', { alpha: false });
+      container.appendChild(canvas);
 
-canvas.style.width = `${cssWidth}px`;
-canvas.style.height = `${cssHeight}px`;
+      /* High‑DPI backing store */
+      const dpr = Math.min(window.devicePixelRatio || 1, 3);
 
-canvas.width = Math.floor(cssWidth * dpr);
-canvas.height = Math.floor(cssHeight * dpr);
+      const cssWidth = Math.floor(viewport.width);
+      const cssHeight = Math.floor(viewport.height);
 
-context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      canvas.style.width = `${cssWidth}px`;
+      canvas.style.height = `${cssHeight}px`;
 
-  await page.render({
-    canvasContext: context,
-    viewport
-  }).promise;
-}
+      canvas.width = Math.floor(cssWidth * dpr);
+      canvas.height = Math.floor(cssHeight * dpr);
 
-    /* Re-render on resize (e.g. mobile rotation) */
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      await page.render({
+        canvasContext: context,
+        viewport
+      }).promise;
+    }
+
+    /* Re-render on orientation change / resize */
     window.addEventListener('resize', () => location.reload());
   </script>
 </body>
