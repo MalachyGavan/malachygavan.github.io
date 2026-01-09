@@ -5,50 +5,50 @@
   <title>Curriculum Vitae</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    html, body {
-      margin: 5px;
-      padding: 10px;
-      height: 99%;
-      background: #ffffff;
-    }
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #f2f2f2; /* light grey page background */
+  }
 
-    /* Outer framed container */
+  /* Outer framed container (the CV area) */
+  #frame {
+    max-width: 900px;
+    margin: 32px auto;
+    padding: 16px;
+    border: 1px solid #d6d6d6;
+    background: #ffffff; /* white paper */
+    box-sizing: border-box;
+  }
+
+  /* Canvas wrapper */
+  #pdf {
+    width: 100%;
+  }
+
+  /* Individual PDF pages */
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 20px auto;
+    background: #ffffff;
+  }
+
+  /* Tighter spacing on small screens */
+  @media (max-width: 600px) {
     #frame {
-      max-width: 900px;
-      margin: 24px auto;
-      padding: 16px;
-      border: 10px solid #d6d6d6;
-      box-sizing: border-box;
-      background: #ffffff;
+      margin: 16px;
+      padding: 8px;
     }
 
-    /* Canvas wrapper */
-    #pdf {
-      width: 95%;
+    canvas {
+      margin-bottom: 16px;
     }
-
-    /* Individual PDF pages */
-canvas {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 5px auto 20px auto;
-  background: #ffffff;
-}
-
-    /* Tighter spacing on small screens */
-    @media (max-width: 600px) {
-      #frame {
-        margin: 12px;
-        padding: 8px;
-      }
-
-      canvas {
-        margin-bottom: 16px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 
 <body>
