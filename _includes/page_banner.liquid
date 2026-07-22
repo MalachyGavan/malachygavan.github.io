@@ -32,10 +32,10 @@ title" banner.
     object-fit: cover;
     object-position: center 42%;
     display: block;
-    filter: saturate(0.68) contrast(1.03);
+    filter: contrast(1.02);
   }
-  /* Burgundy brand wash: darkest on the left under the title, revealing the
-     photo toward the right; a slight bottom darkening seats the base rule. */
+  /* Neutral scrim: darkest on the left under the title, revealing the photo in
+     its natural colours toward the right; slight bottom darkening seats the rule. */
   .page-banner::after {
     content: "";
     position: absolute;
@@ -43,12 +43,12 @@ title" banner.
     background:
       linear-gradient(
         90deg,
-        rgba(58, 14, 26, 0.88) 0%,
-        rgba(88, 21, 39, 0.64) 34%,
-        rgba(125, 32, 56, 0.32) 64%,
-        rgba(125, 32, 56, 0.12) 100%
+        rgba(0, 0, 0, 0.72) 0%,
+        rgba(0, 0, 0, 0.5) 34%,
+        rgba(0, 0, 0, 0.26) 64%,
+        rgba(0, 0, 0, 0.1) 100%
       ),
-      linear-gradient(0deg, rgba(38, 9, 17, 0.5), rgba(38, 9, 17, 0.04) 55%);
+      linear-gradient(0deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.03) 55%);
   }
   .page-banner .page-banner-caption {
     position: absolute;
