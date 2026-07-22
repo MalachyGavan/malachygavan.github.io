@@ -74,7 +74,7 @@ latest_posts:
   }
   @media (max-width: 576px) {
     .intro { flex-direction: column; align-items: flex-start; }
-    .intro-photo { height: auto; width: 224px; aspect-ratio: auto; }
+    .intro-photo { height: auto; width: 224px; aspect-ratio: auto; align-self: center; }
     .intro-photo img { height: auto; }
   }
 </style>
