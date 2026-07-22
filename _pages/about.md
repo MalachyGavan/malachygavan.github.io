@@ -93,43 +93,6 @@ See my [research](/publications/), download my [CV](/cv/), or contact me by [ema
 
 {% include news.liquid %}
 
-## Contact
-
-<div class="contact-wrap">
-  <div class="contact-address">
-    <p><strong>Office 405, Mulberry Court</strong><br />
-    University of Liverpool<br />
-    Liverpool, L69 7ZY</p>
-    <p><a href="mailto:malachy.gavan@liverpool.ac.uk">malachy.gavan@liverpool.ac.uk</a></p>
-  </div>
-  <iframe
-    class="contact-map"
-    src="https://www.openstreetmap.org/export/embed.html?bbox=-3.02%2C53.38%2C-2.91%2C53.43&amp;layer=mapnik&amp;marker=53.4056%2C-2.9660"
-    title="Map showing the University of Liverpool"
-    loading="lazy"
-  ></iframe>
-</div>
-
-<style>
-  .contact-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    align-items: flex-start;
-    margin-top: 1rem;
-  }
-  .contact-address {
-    flex: 1 1 200px;
-  }
-  .contact-map {
-    flex: 2 1 340px;
-    width: 100%;
-    height: 280px;
-    border: 1px solid var(--global-divider-color);
-    border-radius: 8px;
-  }
-</style>
-
 ## On the Map
 
 Where I have studied and worked, and where I have presented or visited:
