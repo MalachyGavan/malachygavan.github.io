@@ -81,9 +81,9 @@ latest_posts:
 
 <div class="bio" markdown="1">
 
-I am an economic theorist with research interests in mechanism design and negotiation. In mechanism design, I study how institutions can be designed to deliver good outcomes even when behaviour is unpredictable. In negotiation, I examine how real-world features of bargaining can lead to inefficiencies. These strands also connect to my secondary interest in international trade, where institutional design and negotiation play a central role in shaping trade agreements.
+I am an economic theorist working on mechanism design and negotiation. In mechanism design, I study how institutions can be designed to deliver good outcomes even when behaviour is unpredictable. In negotiation, I examine how real-world features of bargaining can lead to inefficiencies. These strands also connect to my secondary interest in international trade.
 
-I am currently a Lecturer (Assistant Professor) in Economics at the [University of Liverpool Management School](https://www.liverpool.ac.uk/management/). I received my Ph.D. from [Universitat Pompeu Fabra](https://www.upf.edu/) (UPF) and the [Barcelona School of Economics](https://bse.eu/) (BSE) under the supervision of Antonio Penta.
+I received my Ph.D. from [Universitat Pompeu Fabra](https://www.upf.edu/) and the [Barcelona School of Economics](https://bse.eu/), under the supervision of Antonio Penta.
 
 See my [research](/publications/), download my [CV](/cv/), or contact me by [email](mailto:malachy.gavan@liverpool.ac.uk).
 
