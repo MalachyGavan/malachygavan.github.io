@@ -1,0 +1,9 @@
+# this file contains the social media links and usernames of the author
+# the socials will be displayed in the order they are defined here
+# for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
+cv_pdf: /CV_MJGavan.pdf # path to your CV PDF file (served unchanged at the site root)
+email: malachy.gavan@liverpool.ac.uk # your email address
+# Add more socials below when you have the IDs, e.g.:
+# scholar_userid: # your Google Scholar ID
+# orcid_id: # your ORCID iD
+# linkedin_username: # your LinkedIn username

@@ -1,0 +1,5 @@
+# Places where I have studied or worked (shown as blue pins on the world map).
+# `year` is shown in the map tooltip; `detail` is kept for reference (not displayed).
+- { place: "Guildford", year: "2014–2017", detail: "BSc Economics — University of Surrey", lat: 51.24, lon: -0.59 }
+- { place: "Barcelona", year: "2017–2023", detail: "MSc, MRes & PhD — Barcelona School of Economics and UPF", lat: 41.39, lon: 2.16 }
+- { place: "Liverpool", year: "2023–present", detail: "Lecturer (Assistant Professor) — University of Liverpool", lat: 53.41, lon: -2.98 }

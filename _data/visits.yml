@@ -1,0 +1,17 @@
+# Places where I have given seminars/conference talks or held academic visits.
+# Compiled from the CV. lat/lon are approximate city coordinates (used to place map pins).
+# `year` is shown in the map tooltip; `detail` is kept for reference (not displayed).
+- { place: "Manchester", year: "2024", detail: "Economic Theory Seminar", lat: 53.48, lon: -2.24 }
+- { place: "Colchester", year: "2025", detail: "14th Conference on Economic Design (Essex)", lat: 51.89, lon: 0.90 }
+- { place: "Paris", year: "2023", detail: "22nd SAET Conference (Paris 1 Panthéon-Sorbonne)", lat: 48.85, lon: 2.34 }
+- { place: "Girona", year: "2023", detail: "13th Conference on Economic Design", lat: 41.98, lon: 2.82 }
+- { place: "Padua", year: "2022", detail: "12th Conference on Economic Design", lat: 45.41, lon: 11.88 }
+- { place: "Ischia", year: "2024", detail: "AMASES 2024", lat: 40.73, lon: 13.95 }
+- { place: "Berlin", year: "2022, 2025", detail: "Microeconomic Theory Seminar & EWMES", lat: 52.52, lon: 13.40 }
+- { place: "Vienna", year: "2025", detail: "17th FIW Conference on International Economics (WU)", lat: 48.21, lon: 16.37 }
+- { place: "Budapest", year: "2023, 2024", detail: "Corvinus University — seminar & MID conference", lat: 47.49, lon: 19.04 }
+- { place: "Oslo", year: "2023", detail: "University of Oslo — seminar", lat: 59.91, lon: 10.75 }
+- { place: "Istanbul", year: "2026", detail: "Sabancı University Departmental Seminar", lat: 40.99, lon: 29.06 }
+- { place: "Stony Brook, NY", year: "2022", detail: "33rd Stony Brook International Conference on Game Theory", lat: 40.91, lon: -73.13 }
+- { place: "Singapore", year: "2022", detail: "Asian School in Economic Theory (NUS)", lat: 1.35, lon: 103.82 }
+- { place: "Melbourne", year: "2025", detail: "University of Melbourne — Theory Seminar & visit", lat: -37.81, lon: 144.96 }

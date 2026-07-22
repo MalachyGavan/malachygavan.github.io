@@ -1,0 +1,102 @@
+{% comment %}
+Full-bleed page header banner with the page title overlaid.
+Usage: set `banner: /assets/img/banners/<file>.jpg` (and optional `banner_title`)
+in a page's front matter, then `{% include page_banner.liquid %}` at the top of
+the page body. Pair with `_styles: ".post-header { display: none; }"` to avoid a
+duplicate title.
+
+Branded treatment: the photo is slightly desaturated and washed with a burgundy
+gradient (darkest on the left, where the title sits), the title is left-aligned to
+the page content width with a small accent rule above it, and a burgundy rule
+anchors the base. This is deliberately distinct from a stock "photo + centred
+title" banner.
+{% endcomment %}
+{% if page.banner %}
+<style>
+  .page-banner {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -1rem;
+    margin-bottom: 2.5rem;
+    height: clamp(180px, 30vh, 300px);
+    overflow: hidden;
+    border-bottom: 4px solid var(--global-theme-color);
+  }
+  .page-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
+    display: block;
+    filter: saturate(0.68) contrast(1.03);
+  }
+  /* Burgundy brand wash: darkest on the left under the title, revealing the
+     photo toward the right; a slight bottom darkening seats the base rule. */
+  .page-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(58, 14, 26, 0.88) 0%,
+        rgba(88, 21, 39, 0.64) 34%,
+        rgba(125, 32, 56, 0.32) 64%,
+        rgba(125, 32, 56, 0.12) 100%
+      ),
+      linear-gradient(0deg, rgba(38, 9, 17, 0.5), rgba(38, 9, 17, 0.04) 55%);
+  }
+  .page-banner .page-banner-caption {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .page-banner .page-banner-inner {
+    width: 100%;
+    max-width: {{ site.max_width | default: "930px" }};
+    padding: 0 1.5rem 1.5rem;
+    box-sizing: border-box;
+  }
+  .page-banner .page-banner-rule {
+    width: 44px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 0 0 0.85rem;
+    border-radius: 2px;
+  }
+  .page-banner .page-banner-caption h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-align: left;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+  }
+  @media (max-width: 576px) {
+    .page-banner .page-banner-inner {
+      padding: 0 1.2rem 1.1rem;
+    }
+    .page-banner .page-banner-rule {
+      margin-bottom: 0.6rem;
+    }
+  }
+</style>
+<div class="page-banner">
+  <img src="{{ page.banner | relative_url }}" alt="{{ page.banner_title | default: page.title }} banner" />
+  <div class="page-banner-caption">
+    <div class="page-banner-inner">
+      <div class="page-banner-rule"></div>
+      <h1>{{ page.banner_title | default: page.title }}</h1>
+    </div>
+  </div>
+</div>
+{% endif %}

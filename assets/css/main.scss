@@ -1,0 +1,108 @@
+---
+# Local override of al_folio_core's assets/css/main.scss.
+# Mirrors the theme's @use list, then overrides the accent colour at the end.
+# If you `bundle update` the theme, re-check this @use list against the gem's main.scss.
+---
+@charset "utf-8";
+
+@use "sass:math";
+@use "sass:string";
+
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
+
+@use "themes";
+@use "layout";
+
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+/* ------------------------------------------------------------------ */
+/* Custom accent colour — "Scholarly Burgundy" (overrides theme purple) */
+/* ------------------------------------------------------------------ */
+:root {
+  --global-theme-color: #7d2038;
+  --global-hover-color: #7d2038;
+}
+
+html[data-theme="dark"] {
+  /* Lightened from #b0475d so body links clear WCAG AA (4.5:1) on the dark bg */
+  --global-theme-color: #cf6d84;
+  --global-hover-color: #cf6d84;
+}
+
+/* ------------------------------------------------------------------ */
+/* Automatic light/dark only: hide the manual theme toggle in the nav.  */
+/* (enable_darkmode stays true so theme.js can follow the OS setting;    */
+/*  footer.liquid forces the "system" setting so there's no override.)   */
+/* ------------------------------------------------------------------ */
+.toggle-container,
+#light-toggle {
+  display: none !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* Typography — keep the theme's original Roboto / Roboto Slab.         */
+/* Only make the section headings a consistent size across pages so     */
+/* "University of Liverpool", "News" and "Published & Accepted" match.  */
+/* ------------------------------------------------------------------ */
+article h2,
+.bibliography-section-title {
+  font-size: 1.75rem;
+}
+
+/* Refined links: subtle underline that firms up on hover, smooth colour */
+article a:not(.btn):not([class*="nav"]) {
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(125, 32, 56, 0.45);
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+article a:not(.btn):not([class*="nav"]):hover {
+  text-decoration-color: var(--global-theme-color);
+}
+.nav-link,
+a {
+  transition: color 0.15s ease;
+}
+
+/* ------------------------------------------------------------------ */
+/* Publication preview thumbnails — keep them small and to the side,   */
+/* including on mobile (default theme stacks them full-width on top).   */
+/* ------------------------------------------------------------------ */
+.publications ol.bibliography li .preview {
+  max-width: 105px;
+  height: auto;
+}
+
+@media (max-width: 575.98px) {
+  .publications ol.bibliography li .row:has(.preview) {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+  .publications ol.bibliography li .row:has(.preview) > .abbr {
+    flex: 0 0 auto;
+    width: 92px;
+    max-width: 92px;
+    padding-right: 0;
+    margin-right: 0.7rem;
+  }
+  .publications ol.bibliography li .row:has(.preview) > div:not(.abbr) {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .publications ol.bibliography li .row:has(.preview) .preview {
+    width: 100%;
+    max-width: none;
+  }
+}

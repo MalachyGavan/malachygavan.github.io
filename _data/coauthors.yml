@@ -1,0 +1,17 @@
+# Coauthor display names (and optional links) for the bibliography.
+# Keyed by lowercase last name; firstname lists the initial variants used in papers.bib.
+"penta":
+  - firstname: ["Antonio", "A."]
+    url: https://www.antoniopenta.eu/
+
+"chopra":
+  - firstname: ["Anand", "A."]
+    url: https://anandchopra.net/
+
+"frug":
+  - firstname: ["Alexander", "A."]
+    url: https://sites.google.com/site/alexanderfrug/
+
+"ptashkina":
+  - firstname: ["Maria", "M."]
+    url: https://www.mariaptashkina.com/
