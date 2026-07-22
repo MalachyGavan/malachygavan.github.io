@@ -85,7 +85,7 @@ I am an economic theorist working on mechanism design and negotiation. In mechan
 
 I received my Ph.D. from [Universitat Pompeu Fabra](https://www.upf.edu/) and the [Barcelona School of Economics](https://bse.eu/), under the supervision of Antonio Penta.
 
-See my [research](/publications/), download my [CV](/cv/), or contact me by [email](mailto:malachy.gavan@liverpool.ac.uk).
+For more information, you can see my [research](/publications/), download my [CV](/cv/), or contact me by [email](mailto:malachy.gavan@liverpool.ac.uk).
 
 </div>
 
