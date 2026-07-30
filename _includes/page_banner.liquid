@@ -81,12 +81,31 @@ title" banner.
     text-align: left;
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
   }
+  /* Small italic note (bottom-right) explaining what the photo is. */
+  .page-banner .page-banner-note {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.6rem;
+    z-index: 3;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.74rem;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+  }
   @media (max-width: 576px) {
     .page-banner .page-banner-inner {
       padding: 0 1.2rem 1.1rem;
     }
     .page-banner .page-banner-rule {
       margin-bottom: 0.6rem;
+    }
+    .page-banner .page-banner-note {
+      font-size: 0.66rem;
+      right: 0.75rem;
+      bottom: 0.5rem;
     }
   }
 </style>
@@ -98,5 +117,8 @@ title" banner.
       <h1>{{ page.banner_title | default: page.title }}</h1>
     </div>
   </div>
+  {% if page.banner_caption %}
+    <p class="page-banner-note">{{ page.banner_caption }}</p>
+  {% endif %}
 </div>
 {% endif %}

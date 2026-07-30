@@ -7,6 +7,7 @@ nav: true
 nav_order: 2
 banner: /assets/img/banners/teaching.jpg
 banner_title: Teaching
+banner_caption: Guildford, where I completed my BSc
 _styles: >
   .post-header { display: none; }
   .course-fig { float: right; width: 150px; max-width: 40%; margin: 0.1rem 0 0.5rem 1.2rem; border: 1px solid var(--global-divider-color); border-radius: 6px; background: #fff; }

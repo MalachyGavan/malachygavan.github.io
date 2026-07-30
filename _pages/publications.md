@@ -7,6 +7,7 @@ nav: true
 nav_order: 1
 banner: /assets/img/banners/research.jpg
 banner_title: Research
+banner_caption: Barcelona, where I completed my PhD
 _styles: >
   .post-header { display: none; }
 ---

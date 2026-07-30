@@ -7,6 +7,7 @@ nav: true
 nav_order: 3
 banner: /assets/img/banners/cv.jpg
 banner_title: Curriculum Vitae
+banner_caption: Somerset, where I grew up
 _styles: >
   .post-header { display: none; }
   .cv-embed {
