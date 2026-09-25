@@ -23,14 +23,14 @@ _styles: >
 <img class="course-fig" src="/assets/img/teaching/game_theory.png" alt="An extensive-form game with incomplete information" />
 
 **Game Theory** (ECON322) &nbsp;·&nbsp; Undergraduate
-: Co-taught in 2025 (with Ritesh Jain) and 2024 (with Nicholas de Roos).
+: Co-taught 2025–present, with Ritesh Jain.
 </div>
 
 <div class="course-block" markdown="1">
 <img class="course-fig" src="/assets/img/teaching/maths.png" alt="A function with its minimum and bounding levels" />
 
 **Mathematics for Business and Economics** (ECON111) &nbsp;·&nbsp; Undergraduate
-: 2024, 2025.
+: 2024–present.
 </div>
 
 **Mathematical Economics** (ECON113) &nbsp;·&nbsp; Undergraduate
