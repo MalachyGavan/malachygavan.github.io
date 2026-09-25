@@ -23,7 +23,7 @@ _styles: >
 <img class="course-fig" src="/assets/img/teaching/game_theory.png" alt="An extensive-form game with incomplete information" />
 
 **Game Theory** (ECON322) &nbsp;·&nbsp; Undergraduate
-: Co-taught 2025–present, with Ritesh Jain.
+: Co-taught 2024–present, with Ritesh Jain (since 2025) and Nicholas de Roos (2024).
 </div>
 
 <div class="course-block" markdown="1">
