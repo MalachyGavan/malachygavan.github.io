@@ -24,7 +24,4 @@ _styles: >
 <h2 class="bibliography-section-title">Working Papers</h2>
 {% bibliography --query @*[status=working] %}
 
-<h2 class="bibliography-section-title">Research in Progress</h2>
-{% bibliography --query @*[status=inprogress] %}
-
 </div>

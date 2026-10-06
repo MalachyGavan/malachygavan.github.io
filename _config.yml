@@ -245,6 +245,7 @@ keep_files:
   - .nojekyll
   # --- Legacy root files that MUST stay at their original URLs (papers link to these) ---
   - CV_MJGavan.pdf
+  - GavanPtashkina_Mandates.pdf
   - ExistenceofWeakCoal.pdf
   - FrugGavan_Stability.pdf
   - Frug_Gavan_ReneProof.pdf
